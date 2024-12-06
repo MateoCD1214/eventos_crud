@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Mostrar curso</title>
+</head>
+<body>
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center" >
+            <h1 class="mt-5">Estudiantes de {{curso.nombre}}</h1>
+        </div>
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in curso.estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }}</td> 
+                    <td>{{ estudiante.apellido }}</td> 
+                    <td>{{ estudiante.edad }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-primary mt-3" href="/">Inicio</a>
+    </div>
+</body>
+</html>

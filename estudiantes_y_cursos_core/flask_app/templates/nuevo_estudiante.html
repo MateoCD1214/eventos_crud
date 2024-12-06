@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    header{
+        flex: 1;
+        height: 4rem;
+        width: 100%;
+    }
+    footer{
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #212529ff;
+        color: white;
+        width: 100%;
+    }
+    main{
+        flex: 8;
+    }
+    </style>        
+    <title>Nuevo estudiante</title>
+</head>
+
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh;">
+    <header class="bg-dark text-white">
+        <div class="container">
+            <h1 class="text-center">Nuevo estudiante</h1>
+        </div>
+    </header>
+    <main>
+        <form action="/estudiantes/guardar" method="POST" style="margin: 3rem; width: 25rem; display: flex; flex-direction: column; background-color: rgb(213, 213, 213); padding: 1rem; border-radius: 1rem;">
+            <div class="mb-3">
+                <label for="curso_id" class="form-label">Curso:</label>
+                <select class="form-control" name="curso_id" id="curso" required> 
+                    <option value="">-- Seleccione una opcion --</option>
+                    {% for curso in cursos %}
+                        <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido:</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" required>
+            </div>
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad:</label>
+                <input type="number" class="form-control" id="edad" name="edad" required>
+            </div>
+            <button type="submit" class="btn btn-success">Crear</button>
+            <a href="/" class="btn btn-primary mt-3">Inicio</a>
+        </form>
+    </main>
+    <footer>@2024 Estudiantes y cursos</footer>
+</body>
+</html>
